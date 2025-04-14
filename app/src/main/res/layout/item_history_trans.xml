@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/imgHis"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        app:srcCompat="@drawable/americanfootball" />
+
+    <TextView
+        android:id="@+id/tvHis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="80dp"
+        android:paddingVertical="5dp"
+        android:text="Đi lại"
+        android:textSize="18sp"/>
+    <TextView
+        android:id="@+id/noteHis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="80dp"
+        android:paddingVertical="5dp"
+        android:text="(du dịch Huế)"
+        android:textSize="15sp"/>
+    <TextView
+        android:id="@+id/moneyHis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="250dp"
+        android:paddingVertical="10dp"
+        android:layout_gravity="center_vertical"
+        android:text="0đ"
+        android:textStyle="bold"
+        android:textSize="25sp"/>
+
+
+
+
+
+
+</com.google.android.material.card.MaterialCardView>
