@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.categorytype.CatInFragment">
+    tools:context=".ui.main.feature.categorytype.catIn.CatInFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcCatIn"

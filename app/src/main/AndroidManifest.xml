@@ -16,11 +16,11 @@
             android:name=".ui.register.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.edit.EditCategoryFragment"
+            android:name=".ui.main.feature.edit.EditCategoryFragment"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.mainScreen.ScreenHomeActivity"
+            android:name=".ui.main.main_screen.ScreenHomeActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

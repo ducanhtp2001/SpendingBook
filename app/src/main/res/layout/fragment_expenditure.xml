@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="450dp"
     android:background="@color/white"
-    tools:context=".ui.input.expenditure.ExpenditureFragment">
+    tools:context=".ui.main.feature.input.expenditure.ExpenditureFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcExpenditure"

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.example.appmoney.data.model.Category
+import com.example.appmoney.data.model.CategoryImage
 import com.example.appmoney.data.model.CategoryType
 import com.example.appmoney.databinding.ItemCategoryHorizontalBinding
 import com.example.appmoney.databinding.ItemCategoryVerticalBinding
@@ -33,6 +34,11 @@ interface CategoryListener {
 class CategoryAdapter : ListAdapter<Category, CategoryAdapter.CategoryViewHolder>(
     CategoryDiffCallback()
 ) {
+
+     override fun submitList(list: MutableList<Category>?) {
+        list?.add(Category(image = CategoryImage.EDIT, desCat = "Chỉnh sửa", categoryType = CategoryType.BUTTON))
+        super.submitList(list)
+    }
 
     private var listener: CategoryListener? = null
     fun setListener(listener: CategoryListener) {
