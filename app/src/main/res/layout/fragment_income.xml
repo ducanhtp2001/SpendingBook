@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="450dp"
     android:background="@color/white"
-    tools:context=".ui.input.income.IncomeFragment">
+    tools:context=".ui.main.feature.input.income.IncomeFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
