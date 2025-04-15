@@ -72,7 +72,6 @@ class IncomeFragment : Fragment(), CategoryListener {
             Category(image = CategoryImage.EDIT, desCat = "Chỉnh sửa", categoryType = CategoryType.BUTTON)
         )*/
 
-
     }
 
     override fun onDestroyView() {

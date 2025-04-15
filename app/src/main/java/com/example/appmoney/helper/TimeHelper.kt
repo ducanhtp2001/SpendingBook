@@ -1,6 +1,7 @@
 package com.example.appmoney.helper
 
 import android.util.Log
+import com.google.firebase.Timestamp
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -13,15 +14,6 @@ object TimeHelper {
 
     fun updateTime(time: Long) {
         this.calendar.timeInMillis = time
-    }
-
-    fun getByFormat(format: TimeFormat): String {
-        return try {
-            SimpleDateFormat(format.formatString, locale).format(calendar.time)
-        } catch (e: IllegalArgumentException) {
-            Log.e(this.javaClass.name, "err: $e")
-            ""
-        }
     }
 
     fun getByFormat(cal: Calendar, format: TimeFormat): String {
@@ -40,6 +32,25 @@ object TimeHelper {
             }
         } catch (e: ParseException) {
             Log.e(this.javaClass.name, "err: $e")
+        }
+    }
+    fun stringToTimestamp( dateString: String): Timestamp?{
+        return try {
+            val sfd = SimpleDateFormat(TimeFormat.Date.formatString, locale)
+            val date = sfd.parse(dateString)
+            if (date!= null) Timestamp(date) else null
+        }catch (e : Exception){
+            Log.e(this.javaClass.name, "err: $e")
+            null
+        }
+    }
+    fun timestampToString( timestamp: Timestamp): String{
+        return try {
+            val sfd = SimpleDateFormat(TimeFormat.Date.formatString, locale)
+            sfd.format(timestamp.toDate())
+        }catch (e: Exception){
+            Log.e(this.javaClass.name,"err: $e")
+            ""
         }
     }
 }

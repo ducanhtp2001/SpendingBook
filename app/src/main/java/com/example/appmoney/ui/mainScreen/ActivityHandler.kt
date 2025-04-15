@@ -6,7 +6,7 @@ import com.example.appmoney.R
 import com.example.appmoney.ui.categorytype.CategoryTypeFragment
 import com.example.appmoney.ui.different.MoreFragment
 import com.example.appmoney.ui.edit.EditCategoryFragment
-import com.example.appmoney.fixcategory.FixFragment
+import com.example.appmoney.ui.fixcategory.FixFragment
 import com.example.appmoney.ui.input.InputFragment
 import com.example.appmoney.ui.input.income.IncomeFragment
 import com.example.appmoney.ui.report.ReportFragment

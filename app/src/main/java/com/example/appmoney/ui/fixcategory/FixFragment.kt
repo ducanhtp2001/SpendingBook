@@ -1,4 +1,4 @@
-package com.example.appmoney.fixcategory
+package com.example.appmoney.ui.fixcategory
 
 import android.os.Bundle
 import android.util.Log
