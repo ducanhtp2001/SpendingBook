@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appmoney.databinding.ActivityLoginBinding
-import com.example.appmoney.ui.mainScreen.ScreenHomeActivity
+import com.example.appmoney.ui.main.main_screen.ScreenHomeActivity
 import com.example.appmoney.ui.register.RegisterActivity
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
