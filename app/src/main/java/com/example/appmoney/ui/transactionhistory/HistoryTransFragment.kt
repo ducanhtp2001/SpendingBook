@@ -39,11 +39,11 @@ class HistoryTransFragment : Fragment() {
                     image = CategoryImage.BOOK,
                     color = CategoryColor.BLUE,
                     desCat = "Giáo dục"
-                ), Transaction(inCome = 100000, note = "Mua sách")
+                ), Transaction(amount = 100000, note = "Mua sách")
             ),
             TransAndCat(
                 Category(image = CategoryImage.BUS, color = CategoryColor.RED, desCat = "Đi lại"),
-                Transaction(inCome = 300000, note = "Đi học")
+                Transaction(amount = 300000, note = "Đi học")
             ),
             TransAndCat(
                 Category(
@@ -51,7 +51,7 @@ class HistoryTransFragment : Fragment() {
                     color = CategoryColor.GREEN,
                     desCat = "Giải trí"
                 ),
-                Transaction(inCome = 50000, note = "Nạp thẻ game")
+                Transaction(amount = 50000, note = "Nạp thẻ game")
             ),
             TransAndCat(
                 Category(
@@ -59,7 +59,7 @@ class HistoryTransFragment : Fragment() {
                     color = CategoryColor.YELLOW,
                     desCat = "Mua sắm"
                 ),
-                Transaction(inCome = 1000000, note = "Mua đồ ăn, đồ uống")
+                Transaction(amount = 1000000, note = "Mua đồ ăn, đồ uống")
             ),
             TransAndCat(
                 Category(
@@ -67,17 +67,17 @@ class HistoryTransFragment : Fragment() {
                     color = CategoryColor.PINK,
                     desCat = "Thể thao"
                 ),
-                Transaction(inCome = 150000, note = "Thuê sân")
+                Transaction(amount = 150000, note = "Thuê sân")
             ),TransAndCat(
                 Category(
                     image = CategoryImage.BOOK,
                     color = CategoryColor.BLUE,
                     desCat = "Giáo dục"
-                ), Transaction(inCome = 100000, note = "Mua sách")
+                ), Transaction(amount = 100000, note = "Mua sách")
             ),
             TransAndCat(
                 Category(image = CategoryImage.BUS, color = CategoryColor.RED, desCat = "Đi lại"),
-                Transaction(inCome = 300000, note = "Đi học")
+                Transaction(amount = 300000, note = "Đi học")
             ),
             TransAndCat(
                 Category(
@@ -85,7 +85,7 @@ class HistoryTransFragment : Fragment() {
                     color = CategoryColor.GREEN,
                     desCat = "Giải trí"
                 ),
-                Transaction(inCome = 50000, note = "Nạp thẻ game")
+                Transaction(amount = 50000, note = "Nạp thẻ game")
             ),
             TransAndCat(
                 Category(
@@ -93,7 +93,7 @@ class HistoryTransFragment : Fragment() {
                     color = CategoryColor.YELLOW,
                     desCat = "Mua sắm"
                 ),
-                Transaction(inCome = 1000000, note = "Mua đồ ăn, đồ uống")
+                Transaction(amount = 1000000, note = "Mua đồ ăn, đồ uống")
             ),
             TransAndCat(
                 Category(
@@ -101,17 +101,17 @@ class HistoryTransFragment : Fragment() {
                     color = CategoryColor.PINK,
                     desCat = "Thể thao"
                 ),
-                Transaction(inCome = 150000, note = "Thuê sân")
+                Transaction(amount = 150000, note = "Thuê sân")
             ),TransAndCat(
                 Category(
                     image = CategoryImage.BOOK,
                     color = CategoryColor.BLUE,
                     desCat = "Giáo dục"
-                ), Transaction(inCome = 100000, note = "Mua sách")
+                ), Transaction(amount = 100000, note = "Mua sách")
             ),
             TransAndCat(
                 Category(image = CategoryImage.BUS, color = CategoryColor.RED, desCat = "Đi lại"),
-                Transaction(inCome = 300000, note = "Đi học")
+                Transaction(amount = 300000, note = "Đi học")
             ),
             TransAndCat(
                 Category(
@@ -119,7 +119,7 @@ class HistoryTransFragment : Fragment() {
                     color = CategoryColor.GREEN,
                     desCat = "Giải trí"
                 ),
-                Transaction(inCome = 50000, note = "Nạp thẻ game")
+                Transaction(amount = 50000, note = "Nạp thẻ game")
             ),
             TransAndCat(
                 Category(
@@ -127,7 +127,7 @@ class HistoryTransFragment : Fragment() {
                     color = CategoryColor.YELLOW,
                     desCat = "Mua sắm"
                 ),
-                Transaction(inCome = 1000000, note = "Mua đồ ăn, đồ uống")
+                Transaction(amount = 1000000, note = "Mua đồ ăn, đồ uống")
             ),
             TransAndCat(
                 Category(
@@ -135,10 +135,8 @@ class HistoryTransFragment : Fragment() {
                     color = CategoryColor.PINK,
                     desCat = "Thể thao"
                 ),
-                Transaction(inCome = 150000, note = "Thuê sân")
+                Transaction(amount = 150000, note = "Thuê sân")
             )
-
-
         )
         adapter.submitList(list)
 

@@ -48,7 +48,7 @@ class HistoryTransAdapter :
                 imgHis.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(root.context, item.category.color.resource))
                 tvHis.text = item.category.desCat
                 noteHis.text = "(" + item.trans.note + ")"
-                moneyHis.text = item.trans.inCome.toString()+ "đ"
+                moneyHis.text = item.trans.amount.toString()+ "đ"
                 root.setOnClickListener {
                     listener?.onItemClick(item)
                 }
