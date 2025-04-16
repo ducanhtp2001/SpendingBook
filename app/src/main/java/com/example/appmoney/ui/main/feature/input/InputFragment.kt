@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.appmoney.R
@@ -11,6 +12,7 @@ import com.example.appmoney.databinding.FragmentInputBinding
 import com.example.appmoney.ui.common.helper.TabObject
 import com.example.appmoney.ui.common.helper.TimeFormat
 import com.example.appmoney.ui.common.helper.TimeHelper
+import com.example.appmoney.ui.common.helper.showApiResultToast
 import com.example.appmoney.ui.main.feature.input.viewPagger.InputViewpagerAdapter
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.tabs.TabLayout
@@ -44,12 +46,41 @@ class InputFragment : Fragment() {
         setupObserver()
         setupTabSelected()
         setupDatePicker()
+        binding.btnSave.setOnClickListener {
+            addDateTrans()
+        }
 
+    }
+
+    private fun addDateTrans() {
+        val sDate = binding.tvDate.text.toString().trim()
+        val sAmount = binding.edtMoney.text.toString().trim().toLong()
+        val sNote = binding.edtNote.text.toString().trim()
+        val typeTrans = if (TabObject.tabPosition == 0) {
+            getString(R.string.cat_expenditure)
+        } else {
+            getString(R.string.cat_income)
+        }
+        viewModel.addTrans(sDate,sAmount,sNote,typeTrans,
+            onSuccess = {
+                showApiResultToast(true)
+                binding.edtNote.setText("")
+                binding.edtMoney.setText("")
+            },
+            onFailure = {err ->
+                showApiResultToast(false,err)
+            })
     }
 
     private fun setupObserver() {
         viewModel.selectedTab.observe(viewLifecycleOwner) { tab ->
             binding.Vp.currentItem = tab
+        }
+        viewModel.err.observe(viewLifecycleOwner) {
+            it?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+                viewModel.clearErr()
+            }
         }
     }
 
@@ -83,7 +114,7 @@ class InputFragment : Fragment() {
 
         binding.tvDate.text = TimeHelper.getByFormat(calendar, TimeFormat.Date)
     }
-
+// setup Tab
     private fun setupTabSelected() {
 
         binding.tabMoney.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

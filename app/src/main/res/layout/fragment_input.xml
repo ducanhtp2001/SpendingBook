@@ -115,7 +115,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/edtNote"
                 android:layout_width="305dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"

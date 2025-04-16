@@ -60,7 +60,7 @@ class IncomeFragment : Fragment(), CategoryListener {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProvider(this)[InputViewModel::class.java]
+        viewModel = ViewModelProvider(requireParentFragment())[InputViewModel::class.java]
         sharedViewModel = ViewModelProvider(requireActivity())[ScreenHomeViewModel::class.java]
     }
 
