@@ -1,6 +1,7 @@
 package com.example.appmoney.data.model
 
 import com.example.appmoney.R
+import java.io.Serializable
 
 interface Selectable {
     val isSelected: Boolean
@@ -18,7 +19,7 @@ data class Category(
     val categoryType: CategoryType = CategoryType.ITEM,
     val timeCreate :Long = 0L,
     override val isSelected: Boolean = false
-): Selectable {}
+): Selectable, Serializable {}
 
 enum class CategoryImage(val resource: Int) {
     BUS(R.drawable.bus),
