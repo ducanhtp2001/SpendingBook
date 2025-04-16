@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.appmoney.data.model.Category
 import com.example.appmoney.databinding.FragmentCatExpBinding
 import com.example.appmoney.ui.common.helper.BundleHelper
 import com.example.appmoney.ui.common.helper.Constant.BUNDLE_KEY_CATEGORY
+import com.example.appmoney.ui.common.helper.DialogHelper
 import com.example.appmoney.ui.main.feature.categorytype.viewPagger.CatTypeOnClickListener
 import com.example.appmoney.ui.main.feature.categorytype.viewPagger.CategoryTypeAdapter
 import com.example.appmoney.ui.common.helper.showApiResultToast
@@ -46,9 +49,47 @@ class CatExpFragment : Fragment(), CatTypeOnClickListener {
         adapter.setListener(this)
         bingding.rcCatExp.layoutManager = LinearLayoutManager(requireContext())
         bingding.rcCatExp.adapter = adapter
+        setupSwipeToDelete(bingding.rcCatExp,adapter)
         sharedViewModel.expList.observe(viewLifecycleOwner){ list->
             adapter.submitList(list)
         }
+    }
+    private fun setupSwipeToDelete(recyclerView: RecyclerView, adapter: CategoryTypeAdapter) {
+        val itemTouchHelperCallback =
+            object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean = false
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    val position = viewHolder.adapterPosition
+                    val item = adapter.currentList[position]
+
+                    DialogHelper.showRequestDialog(
+                        requireContext(),
+                        "Xóa danh mục",
+                        "Bạn có chắc muốn xóa danh mục?",
+                        onConfirm = {
+                            viewModel.delCategory(
+                                "Expenditure",item.idCat,
+                                onSuccess = {
+                                    showApiResultToast(true)
+                                    val newList = adapter.currentList.toMutableList()
+                                    newList.removeAt(position)
+                                    adapter.submitList(newList)
+                                },
+                                onFailure = { showApiResultToast(false, it) })
+                        },
+                        onCancel = {
+                            adapter.notifyItemChanged(position)
+                        }
+                    )
+                }
+            }
+        ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView)
+
     }
 
 

@@ -34,6 +34,8 @@ class CatTypeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         catTypeViewModel = ViewModelProvider(this)[CatTypeViewModel::class.java]
+//
+//        binding.vpCatType.setCurrentItem(TabObject.tabPosition,true)
         setupViewPagerTransaction()
         setupTabSelected()
 
@@ -69,6 +71,7 @@ class CatTypeFragment : Fragment() {
                 1 -> tab.text = getString(R.string.transaction_income)
             }
         }.attach()
+
 
         catTypeViewModel.tabSelected.observe(viewLifecycleOwner){ tab ->
             binding.vpCatType.setCurrentItem(tab, true)

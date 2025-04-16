@@ -19,7 +19,7 @@ class ScreenHomeViewModel: ViewModel() {
     val expList: LiveData<List<Category>> = _expList
 
     // getter
-    fun getIncomeCat(onFailure: (String) -> Unit)= viewModelScope.launch(Dispatchers.IO) {
+    fun getIncomeCat(onFailure: (String) -> Unit) {
         repository.getCategory("Income", { list ->
             _incomeList.value = list
         }, onFailure)

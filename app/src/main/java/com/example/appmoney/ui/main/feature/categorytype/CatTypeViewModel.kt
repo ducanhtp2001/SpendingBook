@@ -1,18 +1,11 @@
 package com.example.appmoney.ui.main.feature.categorytype
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.appmoney.data.model.Category
 import com.example.appmoney.data.repository.Repository
 import com.example.appmoney.ui.common.helper.TabObject
-import com.google.firebase.Firebase
-import com.google.firebase.auth.auth
-import com.google.firebase.firestore.firestore
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class CatTypeViewModel(
 ) : ViewModel() {

@@ -73,10 +73,14 @@ class CatInFragment : Fragment(), CatTypeOnClickListener {
                         "Bạn có chắc muốn xóa danh mục?",
                         onConfirm = {
                             viewModel.delCategory(
-                                item.idCat, "Income",
-                                onSuccess = { showApiResultToast(true) },
+                                "Income", item.idCat,
+                                onSuccess = {
+                                    showApiResultToast(true)
+                                    val newList = adapter.currentList.toMutableList()
+                                    newList.removeAt(position)
+                                    adapter.submitList(newList)
+                                },
                                 onFailure = { showApiResultToast(false, it) })
-
                         },
                         onCancel = {
                             adapter.notifyItemChanged(position)
